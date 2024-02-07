@@ -1,6 +1,7 @@
 import "./App.css";
 import Card from "./components/Card";
 import { useState } from "react";
+import { Button } from "@mantine/core";
 
 let arr = [
   {
@@ -27,6 +28,7 @@ const App = () => {
     <div>
       <h1>Başlık</h1>
       <h2>Ders {lesson}</h2>
+      <Button variant="filled">Button</Button>
       <button
         onClick={() => {
           setLesson(lesson + 1);
