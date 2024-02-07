@@ -1,7 +1,7 @@
 import "./App.css";
 import Card from "./components/Card";
 import { useState } from "react";
-import { Button } from "@mantine/core";
+import { Button, Input, Textarea, Container, Stack } from "@mantine/core";
 
 let arr = [
   {
@@ -25,37 +25,24 @@ let arr = [
 const App = () => {
   const [lesson, setLesson] = useState(11);
   return (
-    <div>
-      <h1>Başlık</h1>
-      <h2>Ders {lesson}</h2>
-      <Button variant="filled">Button</Button>
-      <button
-        onClick={() => {
-          setLesson(lesson + 1);
-        }}
-      >
-        Ders Arttır
-      </button>
-      <button
-        onClick={() => {
-          setLesson(lesson - 1);
-        }}
-      >
-        Ders Azalt
-      </button>
-      <button
-        onClick={() => {
-          setLesson(100);
-        }}
-      >
-        Ders 100
-      </button>
+    <Container>
+      <h1>Kart Oluşturma Programı</h1>
+      <Stack>
+        <Input.Wrapper label="Başlık">
+          <Input placeholder="Başık Yazınız" />
+        </Input.Wrapper>
+        <Textarea label="Paragraf" placeholder="Paragraf Yazınız" />
+        <Button variant="outline" color="cyan" size="md">
+          Kart Oluştur
+        </Button>
+      </Stack>
+      <p>Kartlar</p>
       <div className="Cards">
         {arr.map(({ title, par }, index) => {
           return <Card key={index} title={title} p={par} lesson={lesson} />;
         })}
       </div>
-    </div>
+    </Container>
   );
 };
 

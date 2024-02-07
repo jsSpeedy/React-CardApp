@@ -1,11 +1,29 @@
+import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
 import "./Card.css";
 
-const Card = ({ title, p, lesson }) => (
-  <div className="Card">
-    <h6>{title}</h6>
-    <p>{p}</p>
-    {lesson > 20 && <div>ileri düzey</div>}
-  </div>
+const CardComponent = ({ title, p, lesson }) => (
+  <Card shadow="sm" padding="lg" radius="md" withBorder>
+    <Card.Section>
+      <Image
+        src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png"
+        height={160}
+        alt="Norway"
+      />
+    </Card.Section>
+
+    <Group justify="space-between" mt="md" mb="xs">
+      <Text fw={500}>{title}</Text>
+      <Badge color="pink">On Sale</Badge>
+    </Group>
+
+    <Text size="sm" c="dimmed">
+      {p}
+    </Text>
+
+    <Button color="blue" fullWidth mt="md" radius="md">
+      Book classic tour now
+    </Button>
+  </Card>
 );
 
-export default Card;
+export default CardComponent;
